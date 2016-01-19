@@ -10,12 +10,12 @@ class BotGamesurge(ircbot.SingleServerIRCBot):
         ircbot.SingleServerIRCBot.__init__(self, [('irc.gamesurge.net', 6667)],
                                            'ActionFPS_BOT', 'ActionFPS inter bot')
     def on_welcome(self, serv, ev):
-	channels = ['#million'];
+	channels = ['#paradoxinfinity', '#woop-clan'];
 	for i in range(0,len(channels)):
     		print 'Bot joined ' + channels[i]
         	serv.join(channels[i])
 	while True:
-	        messages = SSEClient('http://woop.ac:81/actionfps/inters/')
+	        messages = SSEClient('http://actionfps.com/inters/')
         	for message in messages:
                 	if message.data:
                         	data = json.loads(message.data)
